@@ -16,4 +16,18 @@
 // automatically applied to the <body> element in the app.
 ion-item{
     padding-left:0 !important;
+    // background-color: $dark !important;
+    // background-color: transparent !important;
+    color: $secondary !important;
+    min-height: 50px !important;
+}
+// ion-item-sliding{
+//     // background-color: transparent !important;
+//     // background-color: $dark !important;
+// }
+ion-content{
+    background-color: $dark !important;
+}
+.item-inner{
+    padding-right:0 !important;
 }

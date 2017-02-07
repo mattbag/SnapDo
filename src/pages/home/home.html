@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar color="dark">
     <ion-title>
-      Ionic ToDo
+      SnapDo
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="addItem()">
-<ion-icon name="add-circle"></ion-icon>
+      <button ion-button icon-only (click)="presentActionSheet()">
+<ion-icon name="more" color="secondary"></ion-icon>
 </button>
     </ion-buttons>
   </ion-navbar>
@@ -14,8 +14,8 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item-sliding *ngFor="let item of items; let index = index" (ionDrag)="ondrag($event, item, index)" [attr.color]="item.isDone ? scondary : null">
-      <ion-item>
+    <ion-item-sliding #slidingItem *ngFor="let item of items; let index = index" (ionDrag)="ondrag($event, item, index)" [attr.color]="item.isDone ? scondary : null">
+      <ion-item color="dark">
 
         <!--<ion-icon name="trash" color="danger" (click)="removeItem(item)" item-right></ion-icon>-->
 
@@ -23,17 +23,20 @@
         <ion-icon name="checkmark-circle" color="secondary" item-right *ngIf="item.isDone" (click)="uncheck(item)"></ion-icon>
       </ion-item>
       <ion-item-options side="left">
-        <button ion-button color="secondary">
+        <button expandable ion-button color="secondary">
         <ion-icon name="check"></ion-icon>
         Done
       </button>
       </ion-item-options>
       <ion-item-options side="right">
-        <button ion-button color="danger">
+        <button expandable ion-button color="danger" (click)="removeItem(item)">
         <ion-icon name="trash"></ion-icon>
         Delete
       </button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+  <ion-fab bottom right>
+   <button ion-fab (click)="addItem()" color="secondary"><ion-icon name="add"></ion-icon></button>
+ </ion-fab>
 </ion-content>
