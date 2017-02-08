@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController ,ActionSheetController} from 'ionic-angular';
+import { ModalController, NavController, ActionSheetController, Events } from 'ionic-angular';
 import { AddItemPage } from '../add-item/add-item'
 import { ItemDetailPage } from '../item-detail/item-detail';
 import { AboutPage } from '../about/about';
@@ -14,10 +14,11 @@ export class HomePage {
   public items = [];
 
   constructor(
-    public navCtrl: NavController, 
-    public modalCtrl: ModalController, 
+    public navCtrl: NavController,
+    public modalCtrl: ModalController,
     public dataService: Data,
-    public actionSheetCtrl: ActionSheetController) {
+    public actionSheetCtrl: ActionSheetController,
+    public events: Events) {
 
     this.dataService.getData().then((todos) => {
 
@@ -29,9 +30,29 @@ export class HomePage {
 
   }
 
-  ionViewDidLoad() {
+  // ionViewDidLoad() {
     // this.oneDeleted = false;
-  }
+    // I can bring back the picture, but I can't replace the item in the storage
+    // this.events.subscribe('pic:added', (item) => {
+    //   // let index = this.items.indexOf(item);
+    // //  console.log(index);
+    // // this.items.splice(index, 1);
+    // console.log(item.title);
+    // this.items.forEach(element => {
+    //   if(element.title === item.title){
+    //    this.items[element] = item;
+    //   console.log(this.items[element][0]);
+      
+    //   }
+        
+    // });
+    
+    // this.dataService.save(this.items);
+    //   // if (item) {
+    //   //   this.saveItem(item);
+    //   // }
+    // });
+  // }
 
   addItem() {
 
@@ -114,11 +135,11 @@ export class HomePage {
       // console.log(item);
       if (percent < -1) {
         // console.log(this.items[index]);
-        if(!this.items[index].isDone){
+        if (!this.items[index].isDone) {
           this.items[index].isDone = true;
-        this.dataService.save(this.items);
+          this.dataService.save(this.items);
         }
-        
+
         setTimeout(() => {
           event.close();
         }, 500)
@@ -137,36 +158,36 @@ export class HomePage {
   }
   // shareList(){
   //   console.log('hello');
-    
-  // }
-   presentActionSheet() {
-   let actionSheet = this.actionSheetCtrl.create({
-     title: 'More Actions',
-     buttons: [
-       {
-         text: 'Destructive',
-         role: 'destructive',
-         handler: () => {
-           console.log('Destructive clicked');
-         }
-       },
-       {
-         text: 'About',
-         handler: () => {
-           console.log('About page clicked');
-           this.navCtrl.push(AboutPage);
-         }
-       },
-       {
-         text: 'Cancel',
-         role: 'cancel',
-         handler: () => {
-           console.log('Cancel clicked');
-         }
-       }
-     ]
-   });
 
-   actionSheet.present();
- }
+  // }
+  presentActionSheet() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'More Actions',
+      buttons: [
+        {
+          text: 'Destructive',
+          role: 'destructive',
+          handler: () => {
+            console.log('Destructive clicked');
+          }
+        },
+        {
+          text: 'About',
+          handler: () => {
+            console.log('About page clicked');
+            this.navCtrl.push(AboutPage);
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+
+    actionSheet.present();
+  }
 }

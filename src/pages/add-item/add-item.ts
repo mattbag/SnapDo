@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
-// import { UUID } from 'angular2-uuid';
+import { Camera } from 'ionic-native';
 
 /*
   Generated class for the AddItem page.
@@ -16,17 +16,28 @@ export class AddItemPage {
   title: string;
   description: string;
   isDone: boolean;
-  img: string;
+  img: string = '';
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) {}
 
+accessGallery(){
+   Camera.getPicture({
+     sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
+     destinationType: Camera.DestinationType.DATA_URL
+    }).then((imageData) => {
+      this.img = 'data:image/jpeg;base64,'+imageData;
+
+     }, (err) => {
+      console.log(err);
+    });
+  }
   saveItem(){
     let newItem = {
       // id: UUID.UUID(),
       title: this.title,
       description: this.description,
       isDone: false,
-      img: ''
+      img: this.img
     };
     this.view.dismiss(newItem);
   }

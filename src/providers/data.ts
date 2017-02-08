@@ -15,7 +15,7 @@ export class Data {
   save(data){
     let newData = JSON.stringify(data);
     this.storage.set('todos', newData);
-    console.log(newData);
+    // console.log(newData);
   }
 //  savePic(pic){
 //    let picString = JSON.stringify(pic);
