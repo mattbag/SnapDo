@@ -15,9 +15,10 @@ export class Data {
   save(data){
     let newData = JSON.stringify(data);
     this.storage.set('todos', newData);
+    console.log(newData);
   }
- remove(item){
-console.log(item);
-
- }
+//  savePic(pic){
+//    let picString = JSON.stringify(pic);
+//    this.storage.set('todos', newData);
+//  }
 }

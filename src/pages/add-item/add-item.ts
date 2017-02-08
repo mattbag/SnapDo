@@ -16,6 +16,7 @@ export class AddItemPage {
   title: string;
   description: string;
   isDone: boolean;
+  img: string;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) {}
 
@@ -24,7 +25,8 @@ export class AddItemPage {
       // id: UUID.UUID(),
       title: this.title,
       description: this.description,
-      isDone: false
+      isDone: false,
+      img: ''
     };
     this.view.dismiss(newItem);
   }

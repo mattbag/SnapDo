@@ -29,7 +29,7 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    this.oneDeleted = false;
+    // this.oneDeleted = false;
   }
 
   addItem() {
