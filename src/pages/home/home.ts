@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController, NavController ,ActionSheetController} from 'ionic-angular';
 import { AddItemPage } from '../add-item/add-item'
 import { ItemDetailPage } from '../item-detail/item-detail';
+import { AboutPage } from '../about/about';
 import { Data } from '../../providers/data';
 // import { ItemSliding } from 'ionic-angular';
 @Component({
@@ -153,6 +154,7 @@ export class HomePage {
          text: 'About',
          handler: () => {
            console.log('About page clicked');
+           this.navCtrl.push(AboutPage);
          }
        },
        {
