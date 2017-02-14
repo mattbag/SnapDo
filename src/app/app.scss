@@ -21,10 +21,10 @@ ion-item{
     color: $secondary !important;
     min-height: 50px !important;
 }
-// ion-item-sliding{
+ion-item-sliding{
 //     // background-color: transparent !important;
-//     // background-color: $dark !important;
-// }
+    background-color: $dark !important;
+}
 ion-content{
     background-color: $dark !important;
 }

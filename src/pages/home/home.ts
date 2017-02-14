@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController, NavController, ActionSheetController, Events } from 'ionic-angular';
-import { AddItemPage } from '../add-item/add-item'
+import { AddItemPage } from '../add-item/add-item';
+import { EditItemPage } from '../edit-item/edit-item';
 import { ItemDetailPage } from '../item-detail/item-detail';
 import { AboutPage } from '../about/about';
 import { Data } from '../../providers/data';
@@ -31,27 +32,27 @@ export class HomePage {
   }
 
   // ionViewDidLoad() {
-    // this.oneDeleted = false;
-    // I can bring back the picture, but I can't replace the item in the storage
-    // this.events.subscribe('pic:added', (item) => {
-    //   // let index = this.items.indexOf(item);
-    // //  console.log(index);
-    // // this.items.splice(index, 1);
-    // console.log(item.title);
-    // this.items.forEach(element => {
-    //   if(element.title === item.title){
-    //    this.items[element] = item;
-    //   console.log(this.items[element][0]);
-      
-    //   }
-        
-    // });
-    
-    // this.dataService.save(this.items);
-    //   // if (item) {
-    //   //   this.saveItem(item);
-    //   // }
-    // });
+  // this.oneDeleted = false;
+  // I can bring back the picture, but I can't replace the item in the storage
+  // this.events.subscribe('pic:added', (item) => {
+  //   // let index = this.items.indexOf(item);
+  // //  console.log(index);
+  // // this.items.splice(index, 1);
+  // console.log(item.title);
+  // this.items.forEach(element => {
+  //   if(element.title === item.title){
+  //    this.items[element] = item;
+  //   console.log(this.items[element][0]);
+
+  //   }
+
+  // });
+
+  // this.dataService.save(this.items);
+  //   // if (item) {
+  //   //   this.saveItem(item);
+  //   // }
+  // });
   // }
 
   addItem() {
@@ -69,12 +70,36 @@ export class HomePage {
     addModal.present();
 
   }
+
+  editItem(item,index) {
+  
+    let editModal = this.modalCtrl.create(EditItemPage, {item: item, index: index});
+
+    editModal.onDidDismiss((item) => {
+        console.log(item);
+      if (item) {
+        console.log('quak');
+        
+        this.updateItem(item);
+      }
+
+    });
+
+    editModal.present();
+
+  }
   uncheck(item) {
     item.isDone = false;
     this.dataService.save(this.items);
   }
   saveItem(item) {
     this.items.push(item);
+    this.dataService.save(this.items);
+  }
+   updateItem(item) {
+     console.log(item);
+     
+    this.items[item.index]=item;
     this.dataService.save(this.items);
   }
   removeItem(item) {

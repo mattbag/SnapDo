@@ -3,6 +3,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AddItemPage } from '../pages/add-item/add-item';
+import { EditItemPage } from '../pages/edit-item/edit-item';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { AboutPage } from '../pages/about/about';
 import {Storage} from '@ionic/storage';
@@ -14,6 +15,7 @@ import { Data } from '../providers/data';
     HomePage,
     AddItemPage,
     ItemDetailPage,
+    EditItemPage,
     AboutPage
   ],
   imports: [
@@ -25,6 +27,7 @@ import { Data } from '../providers/data';
     HomePage,
     AddItemPage,
     ItemDetailPage,
+    EditItemPage,
     AboutPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage, Data]
