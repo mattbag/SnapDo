@@ -35,7 +35,10 @@ updateItem(){
       img: this.img,
       index: this.index
     };
-    this.view.dismiss(updatedItem);
+    if(this.title){
+     this.view.dismiss(updatedItem);
+    }
+    
     // console.log(updatedItem);
     
   }

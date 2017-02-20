@@ -18,5 +18,7 @@ export class AboutPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutPage');
   }
-
+goToPortfolio(){
+   window.open('//mattbag.github.io' )
+}
 }

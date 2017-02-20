@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, Events } from 'ionic-angular';
-import { Camera } from 'ionic-native';
 /*
   Generated class for the ItemDetail page.
 

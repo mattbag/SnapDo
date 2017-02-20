@@ -190,10 +190,13 @@ export class HomePage {
       title: 'More Actions',
       buttons: [
         {
-          text: 'Destructive',
-          role: 'destructive',
+          text: 'Portfolio',
+          // role: 'destructive',
           handler: () => {
-            console.log('Destructive clicked');
+            // console.log('Destructive clicked');
+            // location.href = '//mattbag.github.io'
+            window.open('//mattbag.github.io' )
+
           }
         },
         {

@@ -39,7 +39,10 @@ accessGallery(){
       isDone: false,
       img: this.img
     };
-    this.view.dismiss(newItem);
+    if(this.title){
+      this.view.dismiss(newItem);
+    }
+    
   }
  close(){
    this.view.dismiss();
