@@ -1,7 +1,7 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "snapod-ionic",
+  "author": "Matt Bagni",
+  "homepage": "http://mattbag.github.io/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",

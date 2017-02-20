@@ -22,27 +22,14 @@ isDone: boolean;
     this.title = this.navParams.get('item').title;
     this.description = this.navParams.get('item').description;
     this.img = this.navParams.get('item').img;
+    this.isDone = this.navParams.get('item').isDone;
   }
   
-accessGallery(){
-   Camera.getPicture({
-     sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
-     destinationType: Camera.DestinationType.DATA_URL
-    }).then((imageData) => {
-      this.img = 'data:image/jpeg;base64,'+imageData;
-      
-    //    let newItem = {
-    //   // id: UUID.UUID(),
-    //   title: this.title,
-    //   description: this.description,
-    //   isDone: this.isDone,
-    //   img: this.img
-    // };
-    // this.events.publish('pic:added', newItem);
-
-     }, (err) => {
-      console.log(err);
-    });
-  }
- 
+shareTodo(){
+  console.log('sharing...'); 
+}
+ uncheck(){
+   console.log('uncheck fn missing');
+   
+ }
 }
