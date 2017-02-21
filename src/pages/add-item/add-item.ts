@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController,ToastController } from 'ionic-angular';
 import { Camera } from 'ionic-native';
+
 
 /*
   Generated class for the AddItem page.
@@ -18,7 +19,21 @@ export class AddItemPage {
   isDone: boolean;
   img: string = '';
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) {}
+  constructor(public navCtrl: NavController, 
+  public navParams: NavParams, 
+  public view: ViewController,
+  public toast: ToastController
+  ) {}
+
+ presentToast() {
+    let toast = this.toast.create({
+      message: 'I need a title here!',
+      duration: 3000,
+      position: 'top',
+
+    });
+    toast.present();
+  }
 
 accessGallery(){
    Camera.getPicture({
@@ -41,6 +56,9 @@ accessGallery(){
     };
     if(this.title){
       this.view.dismiss(newItem);
+    }else{
+     this.presentToast();
+
     }
     
   }

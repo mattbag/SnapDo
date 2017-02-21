@@ -49,6 +49,14 @@ $card-ios-background-color: black;
 $card-md-background-color: black;
 $card-wp-background-color: black;
 
+// $toast-width: 95%;
+$toast-ios-background: $danger;
+$toast-md-background: $danger;
+$toast-wp-background: $danger;
+
+$toast-ios-border-radius: 2px;
+$toast-md-border-radius: 2px;
+$toast-wp-border-radius: 2px;
 
 // App iOS Variables
 // --------------------------------------------------

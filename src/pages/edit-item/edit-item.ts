@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController,ToastController } from 'ionic-angular';
 // import { Camera } from 'ionic-native';
 
 /*
@@ -19,12 +19,21 @@ export class EditItemPage {
   img: string ;
   index: boolean;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController,public toast: ToastController) {
     this.title = this.navParams.get('item').title;
     this.description = this.navParams.get('item').description;
     this.isDone = this.navParams.get('item').isDone;
     this.img = this.navParams.get('item').img;
     this.index = this.navParams.get('index');
+  }
+   presentToast() {
+    let toast = this.toast.create({
+      message: 'Don\'t remove the title!',
+      duration: 3000,
+      position: 'top',
+
+    });
+    toast.present();
   }
 updateItem(){
     let updatedItem = {
@@ -37,6 +46,8 @@ updateItem(){
     };
     if(this.title){
      this.view.dismiss(updatedItem);
+    }else{
+     this.presentToast();
     }
     
     // console.log(updatedItem);
