@@ -6,8 +6,10 @@ import { AddItemPage } from '../pages/add-item/add-item';
 import { EditItemPage } from '../pages/edit-item/edit-item';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { AboutPage } from '../pages/about/about';
-import {Storage} from '@ionic/storage';
+// import {Storage} from '@ionic/storage';
+import { IonicStorageModule } from '@ionic/storage';
 import { Data } from '../providers/data';
+import {BrowserModule} from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { Data } from '../providers/data';
     AboutPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
+    BrowserModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -30,6 +34,6 @@ import { Data } from '../providers/data';
     EditItemPage,
     AboutPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage, Data]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Data]
 })
 export class AppModule {}
