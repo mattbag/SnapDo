@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController, ActionSheetController, Events } from 'ionic-angular';
 import { AddItemPage } from '../add-item/add-item';
 import { EditItemPage } from '../edit-item/edit-item';
-import { ItemDetailPage } from '../item-detail/item-detail';
 import { Data } from '../../providers/data';
 
 // import { ItemSliding } from 'ionic-angular';
@@ -111,7 +110,7 @@ export class HomePage {
   }
 
   viewItem(item) {
-    this.navCtrl.push(ItemDetailPage, {
+    this.navCtrl.push('ItemDetailPage', {
       item: item
     });
   }

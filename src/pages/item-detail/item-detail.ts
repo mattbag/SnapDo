@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Events } from 'ionic-angular';
+import { IonicPage,NavController, NavParams, Events } from 'ionic-angular';
 /*
   Generated class for the ItemDetail page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
+@IonicPage()
 @Component({
   selector: 'page-item-detail',
   templateUrl: 'item-detail.html'
