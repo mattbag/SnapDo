@@ -86,7 +86,7 @@ export class HomePage {
   }
 
   viewItem(item) {
-    if (item.description) {
+    if (item.description || item.img) {
       this.navCtrl.push('ItemDetailPage', {
         item: item
       });
