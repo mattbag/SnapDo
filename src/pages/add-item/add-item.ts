@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController,ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController,ToastController } from 'ionic-angular';
 import { Camera } from 'ionic-native';
 
 
@@ -9,6 +9,7 @@ import { Camera } from 'ionic-native';
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
+@IonicPage()
 @Component({
   selector: 'page-add-item',
   templateUrl: 'add-item.html'

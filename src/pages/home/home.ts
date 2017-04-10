@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController, ActionSheetController, Events } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, ActionSheetController, Events } from 'ionic-angular';
 import { AddItemPage } from '../add-item/add-item';
 import { EditItemPage } from '../edit-item/edit-item';
 import { ItemDetailPage } from '../item-detail/item-detail';
-import { AboutPage } from '../about/about';
 import { Data } from '../../providers/data';
+
 // import { ItemSliding } from 'ionic-angular';
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -203,7 +204,7 @@ export class HomePage {
           text: 'About',
           handler: () => {
             console.log('About page clicked');
-            this.navCtrl.push(AboutPage);
+            this.navCtrl.push("AboutPage");
           }
         },
         {

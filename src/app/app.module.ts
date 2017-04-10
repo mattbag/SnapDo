@@ -1,11 +1,9 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { AddItemPage } from '../pages/add-item/add-item';
 import { EditItemPage } from '../pages/edit-item/edit-item';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
-import { AboutPage } from '../pages/about/about';
 // import {Storage} from '@ionic/storage';
 import { IonicStorageModule } from '@ionic/storage';
 import { Data } from '../providers/data';
@@ -14,11 +12,9 @@ import {BrowserModule} from '@angular/platform-browser';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     AddItemPage,
     ItemDetailPage,
-    EditItemPage,
-    AboutPage
+    EditItemPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -28,11 +24,9 @@ import {BrowserModule} from '@angular/platform-browser';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     AddItemPage,
     ItemDetailPage,
-    EditItemPage,
-    AboutPage
+    EditItemPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Data]
 })

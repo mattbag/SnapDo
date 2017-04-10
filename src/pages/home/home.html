@@ -14,13 +14,13 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item-sliding #slidingItem *ngFor="let item of items; let index = index" (ionDrag)="ondrag($event, item, index)" [attr.color]="item.isDone ? scondary : null">
+    <ion-item-sliding #slidingItem *ngFor="let item of items; let index = index" (ionDrag)="ondrag($event, item, index)">
       <ion-item color="dark">
 
         <!--<ion-icon name="trash" color="danger" (click)="removeItem(item)" item-right></ion-icon>-->
 
         <span (click)="viewItem(item)">{{item?.title}}</span>
-        <ion-icon name="information-circle" color="danger" item-right *ngIf="item?.description" (click)="viewItem(item)" style="margin-right: 5px"></ion-icon>
+        <ion-icon name="information-circle" color="danger" item-right *ngIf="item?.description" (click)="viewItem(item)" [style.margin-right]="item?.isDone ? '5px' : ''"></ion-icon>
         <ion-icon name="checkmark-circle" color="secondary" item-right *ngIf="item.isDone" (click)="uncheck(item)"></ion-icon>
       </ion-item>
       <ion-item-options side="left">
