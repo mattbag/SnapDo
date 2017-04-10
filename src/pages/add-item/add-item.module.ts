@@ -13,4 +13,4 @@ import { AddItemPage } from './add-item';
     AddItemPage
   ]
 })
-export class HomeModule {}
+export class AddItemPageModule {}
